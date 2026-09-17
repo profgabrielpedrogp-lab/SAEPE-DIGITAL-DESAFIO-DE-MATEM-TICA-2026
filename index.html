@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAEPE Digital — 3º Ano 2026 | Iracema M M Veras</title>
+<meta name="description" content="SAEPE Digital — Desafio de Matemática — 3º Ano 2026 — EREF Iracema M M Veras — Professor Gabriel Pedro">
+<style>
+:root{
+  --azul:#0b4f8a; --azul2:#1976d2; --azul-claro:#eaf4ff;
+  --amarelo:#f4c542; --verde:#16865a; --vermelho:#c62828;
+  --texto:#17212b; --muted:#667788; --bg:#f4f7fb; --card:#fff;
+  --border:#dbe3ec; --shadow:0 8px 25px rgba(20,45,70,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--texto)}
+header{background:linear-gradient(135deg,var(--azul),#0d6eb8);color:#fff;padding:22px 18px;position:sticky;top:0;z-index:10;box-shadow:0 3px 15px #0002}
+.header-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.school{font-size:14px;opacity:.9}.title{font-size:25px;font-weight:800;margin:4px 0}.teacher{font-size:15px}
+.container{max-width:1180px;margin:24px auto;padding:0 16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:22px;margin-bottom:18px}
+.hero{background:linear-gradient(135deg,#fff,#edf6ff);border-left:6px solid var(--amarelo)}
+.hero h1{margin:0 0 8px;font-size:28px;color:var(--azul)}
+.hero p{margin:6px 0;color:var(--muted)}
+.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+label{font-size:13px;font-weight:700;color:#445}
+select,input{width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:15px}
+button{border:0;border-radius:11px;padding:12px 16px;font-weight:800;cursor:pointer;transition:.15s}
+button:hover{transform:translateY(-1px)}
+.primary{background:var(--azul2);color:#fff}.secondary{background:#e9eef5;color:#18344c}.warning{background:var(--amarelo);color:#3b3000}.danger{background:#fdeaea;color:var(--vermelho)}
+.mode-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}
+.hidden{display:none!important}
+.question-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.badges{display:flex;gap:7px;flex-wrap:wrap}
+.badge{padding:6px 9px;border-radius:999px;background:var(--azul-claro);color:var(--azul);font-size:12px;font-weight:800}
+.progress{height:9px;background:#e5ebf1;border-radius:99px;overflow:hidden;margin:14px 0}
+.progress>div{height:100%;background:var(--azul2);width:0;transition:.25s}
+.question-image{width:100%;max-height:720px;object-fit:contain;border:1px solid #e1e6eb;border-radius:12px;background:white;margin:12px 0;display:block}.image-error{margin:12px 0;padding:18px;border:2px solid var(--vermelho);border-radius:12px;background:#fff3f3;color:#7a1717}.image-error strong{display:block;font-size:16px;margin-bottom:8px}.image-error code{display:inline-block;margin-top:6px;padding:7px 9px;border-radius:7px;background:#fff;border:1px solid #f0caca;font-family:Consolas,monospace;font-size:13px;word-break:break-all}.image-error .small{color:#8b3a3a}
+.answers{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.answer{background:#f5f8fb;border:2px solid #dce5ee;color:#18344c;font-size:18px}
+.answer.selected{border-color:var(--azul2);background:#e8f2ff}
+.answer.correct{border-color:var(--verde);background:#e8f7f0;color:#0d5a3d}
+.answer.wrong{border-color:var(--vermelho);background:#ffeded;color:#8b1e1e}
+.feedback{margin-top:14px;padding:14px;border-radius:12px;font-weight:700}
+.feedback.ok{background:#e8f7f0;color:#0d5a3d}.feedback.no{background:#ffeded;color:#8b1e1e}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{padding:18px;border-radius:15px;background:#f7fafc;border:1px solid var(--border)}
+.kpi strong{display:block;font-size:26px;color:var(--azul)}
+.table-wrap{overflow:auto} table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid var(--border);text-align:left}th{background:#f3f6f9}
+.bar{height:13px;background:#e7edf3;border-radius:99px;overflow:hidden}.bar>span{display:block;height:100%;background:var(--azul2)}
+.small{font-size:12px;color:var(--muted)}
+footer{max-width:1180px;margin:30px auto;padding:20px 16px;color:var(--muted);font-size:12px}
+.teacher-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:800px){
+  .controls,.kpis{grid-template-columns:1fr 1fr}.answers{grid-template-columns:repeat(2,1fr)}
+  .teacher-grid{grid-template-columns:1fr}.title{font-size:20px}
+}
+@media(max-width:500px){.controls,.kpis{grid-template-columns:1fr}.answers{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="school">EREF IRACEMA M M VERAS</div>
+      <div class="title">SAEPE DIGITAL — DESAFIO DE MATEMÁTICA</div>
+      <div class="teacher">Professor Gabriel Pedro • Turma 3º Ano • 2026</div>
+    </div>
+    <button class="warning" onclick="showHome()">Início</button>
+  </div>
+</header>
+
+<main class="container">
+<section id="home">
+  <div class="card hero">
+    <h1>SAEPE Digital — 3º Ano 2026</h1>
+    <p><strong>Escola:</strong> EREF Iracema M M Veras</p>
+    <p><strong>Professor:</strong> Gabriel Pedro</p>
+    <p><strong>Turma:</strong> 3º Ano — 2026</p>
+    <p>Banco digital construído a partir das questões de Matemática dos cadernos SAEPE C1201 de 2021 e 2022 fornecidos pelo professor.</p>
+    <p class="small">🛠️ O sistema verifica automaticamente as imagens. Se algum arquivo faltar, o nome e o caminho esperado serão exibidos no lugar da questão.</p>
+  </div>
+
+  <div class="card">
+    <h2>Iniciar atividade</h2>
+    <div class="controls">
+      <div><label>Nome do estudante</label><input id="studentName" placeholder="Digite seu nome"></div>
+      <div><label>Ano da prova</label><select id="yearFilter"><option value="all">2021 + 2022</option><option value="2021">SAEPE 2021</option><option value="2022">SAEPE 2022</option></select></div>
+      <div><label>Conteúdo</label><select id="catFilter"><option value="all">Todos os conteúdos</option></select></div>
+      <div><label>Quantidade</label><select id="qty"><option value="10">10 questões</option><option value="20">20 questões</option><option value="all">Banco completo</option></select></div>
+    </div>
+    <div class="mode-row">
+      <button class="primary" onclick="startQuiz('training')">▶ Modo Treinamento</button>
+      <button class="secondary" onclick="startQuiz('assessment')">📝 Modo Avaliação</button>
+      <button class="warning" onclick="startQuiz('random')">🎯 Desafio Aleatório</button>
+      <button class="secondary" onclick="openTeacher()">👨‍🏫 Modo Professor</button>
+    </div>
+    <p class="small" style="margin-top:12px">O sistema funciona offline. Os resultados ficam armazenados neste navegador e podem ser exportados.</p>
+  </div>
+
+  <div class="card">
+    <h2>Como usar no laboratório</h2>
+    <ol>
+      <li>Abra este arquivo no Google Chrome ou outro navegador.</li>
+      <li>Cada estudante informa o próprio nome.</li>
+      <li>Escolha 2021, 2022 ou as duas provas.</li>
+      <li>No modo treinamento, o aluno recebe feedback após responder.</li>
+      <li>No modo avaliação, o gabarito fica oculto até o final.</li>
+      <li>Para o data show, use o <strong>Modo Professor</strong>.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="quiz" class="hidden">
+  <div class="card">
+    <div class="question-head">
+      <div>
+        <div class="small" id="studentLabel"></div>
+        <h2 id="questionTitle" style="margin:4px 0"></h2>
+      </div>
+      <div class="badges" id="badges"></div>
+    </div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <div class="small" id="progressText"></div>
+    <div id="questionImageWrap"><img id="questionImage" class="question-image" alt="Questão oficial do SAEPE" onerror="handleImageError(this)"></div>
+    <div class="answers" id="answers"></div>
+    <div id="feedback" class="hidden"></div>
+    <div class="nav">
+      <button class="secondary" onclick="prevQuestion()">← Anterior</button>
+      <button class="primary" onclick="nextQuestion()">Próxima →</button>
+    </div>
+  </div>
+</section>
+
+<section id="result" class="hidden">
+  <div class="card hero">
+    <h1>Resultado</h1>
+    <p id="resultStudent"></p>
+    <div class="kpis">
+      <div class="kpi"><span>Questões</span><strong id="rTotal">0</strong></div>
+      <div class="kpi"><span>Acertos</span><strong id="rCorrect">0</strong></div>
+      <div class="kpi"><span>Erros</span><strong id="rWrong">0</strong></div>
+      <div class="kpi"><span>Aproveitamento</span><strong id="rPct">0%</strong></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Desempenho por conteúdo</h2>
+    <div id="contentReport"></div>
+  </div>
+  <div class="card">
+    <h2>Relatório</h2>
+    <button class="primary" onclick="downloadCurrentResult()">⬇ Baixar resultado em JSON</button>
+    <button class="secondary" onclick="showHome()">Voltar ao início</button>
+  </div>
+</section>
+
+<section id="teacher" class="hidden">
+  <div class="card hero">
+    <h1>Modo Professor</h1>
+    <p>Use para projeção no data show, revisão coletiva e análise dos resultados registrados neste navegador.</p>
+    <button class="secondary" onclick="showHome()">← Voltar</button>
+  </div>
+  <div class="card">
+    <h2>Questões</h2>
+    <div class="controls">
+      <div><label>Ano</label><select id="teacherYear"><option value="all">Todos</option><option value="2021">2021</option><option value="2022">2022</option></select></div>
+      <div><label>Questão</label><select id="teacherQuestion"></select></div>
+      <div><label>Modo</label><select id="teacherReveal"><option value="hidden">Gabarito oculto</option><option value="show">Revelar gabarito</option></select></div>
+      <div><label>Filtro</label><select id="teacherCat"><option value="all">Todos os conteúdos</option></select></div>
+    </div>
+  </div>
+  <div class="card" id="teacherView"></div>
+  <div class="card">
+    <h2>Resultados deste navegador</h2>
+    <div id="storedResults"></div>
+    <button class="primary" onclick="exportAllResults()">⬇ Exportar resultados</button>
+    <button class="danger" onclick="clearResults()">Apagar resultados locais</button>
+  </div>
+</section>
+</main>
+
+<footer>
+  <strong>SAEPE DIGITAL — DESAFIO DE MATEMÁTICA</strong><br>
+  EREF Iracema M M Veras • Professor Gabriel Pedro • 3º Ano 2026<br>
+  Questões oficiais reproduzidas a partir dos arquivos fornecidos pelo professor. Habilidades/descritores não foram inventados quando não constavam nos materiais.
+</footer>
+
+<script>
+const QUESTIONS = [{"id": "2021-27", "year": 2021, "number": 27, "code": "M120072I7", "source": "SAEPE 2021 — Caderno C1201", "category": "Estatística e interpretação de dados", "skill": "Não identificado no material fornecido", "image": "assets/2021_q27.png", "answer": "C"}, {"id": "2021-28", "year": 2021, "number": 28, "code": "M110033E4", "source": "SAEPE 2021 — Caderno C1201", "category": "Plano cartesiano", "skill": "Não identificado no material fornecido", "image": "assets/2021_q28.png", "answer": "D"}, {"id": "2021-29", "year": 2021, "number": 29, "code": "M120279G5", "source": "SAEPE 2021 — Caderno C1201", "category": "Equação do 2º grau", "skill": "Não identificado no material fornecido", "image": "assets/2021_q29.png", "answer": "B"}, {"id": "2021-30", "year": 2021, "number": 30, "code": "M120321H6", "source": "SAEPE 2021 — Caderno C1201", "category": "Geometria espacial", "skill": "Não identificado no material fornecido", "image": "assets/2021_q30.png", "answer": "E"}, {"id": "2021-31", "year": 2021, "number": 31, "code": "M120408H6", "source": "SAEPE 2021 — Caderno C1201", "category": "Funções", "skill": "Não identificado no material fornecido", "image": "assets/2021_q31.png", "answer": "E"}, {"id": "2021-32", "year": 2021, "number": 32, "code": "M110137E4", "source": "SAEPE 2021 — Caderno C1201", "category": "Área de figuras planas", "skill": "Não identificado no material fornecido", "image": "assets/2021_q32.png", "answer": "C"}, {"id": "2021-33", "year": 2021, "number": 33, "code": "M120403H6", "source": "SAEPE 2021 — Caderno C1201", "category": "Função afim", "skill": "Não identificado no material fornecido", "image": "assets/2021_q33.png", "answer": "A"}, {"id": "2021-34", "year": 2021, "number": 34, "code": "M120190G5", "source": "SAEPE 2021 — Caderno C1201", "category": "Semelhança de triângulos", "skill": "Não identificado no material fornecido", "image": "assets/2021_q34.png", "answer": "D"}, {"id": "2021-35", "year": 2021, "number": 35, "code": "M100063E4", "source": "SAEPE 2021 — Caderno C1201", "category": "Polinômios", "skill": "Não identificado no material fornecido", "image": "assets/2021_q35.png", "answer": "C"}, {"id": "2021-36", "year": 2021, "number": 36, "code": "M120076I7", "source": "SAEPE 2021 — Caderno C1201", "category": "Probabilidade", "skill": "Não identificado no material fornecido", "image": "assets/2021_q36.png", "answer": "B"}, {"id": "2021-37", "year": 2021, "number": 37, "code": "M110249H6", "source": "SAEPE 2021 — Caderno C1201", "category": "Porcentagem", "skill": "Não identificado no material fornecido", "image": "assets/2021_q37.png", "answer": "D"}, {"id": "2021-38", "year": 2021, "number": 38, "code": "M110032I7", "source": "SAEPE 2021 — Caderno C1201", "category": "Trigonometria", "skill": "Não identificado no material fornecido", "image": "assets/2021_q38.png", "answer": "A"}, {"id": "2021-39", "year": 2021, "number": 39, "code": "M120693H6", "source": "SAEPE 2021 — Caderno C1201", "category": "Função exponencial", "skill": "Não identificado no material fornecido", "image": "assets/2021_q39.png", "answer": "D"}, {"id": "2021-40", "year": 2021, "number": 40, "code": "M110236H6", "source": "SAEPE 2021 — Caderno C1201", "category": "Progressão aritmética", "skill": "Não identificado no material fornecido", "image": "assets/2021_q40.png", "answer": "B"}, {"id": "2021-41", "year": 2021, "number": 41, "code": "M120440A9", "source": "SAEPE 2021 — Caderno C1201", "category": "Sistemas e funções lineares", "skill": "Não identificado no material fornecido", "image": "assets/2021_q41.png", "answer": "A"}, {"id": "2021-42", "year": 2021, "number": 42, "code": "M100273E4", "source": "SAEPE 2021 — Caderno C1201", "category": "Números e reta numérica", "skill": "Não identificado no material fornecido", "image": "assets/2021_q42.png", "answer": "E"}, {"id": "2021-43", "year": 2021, "number": 43, "code": "M120180I7", "source": "SAEPE 2021 — Caderno C1201", "category": "Geometria analítica", "skill": "Não identificado no material fornecido", "image": "assets/2021_q43.png", "answer": "C"}, {"id": "2021-44", "year": 2021, "number": 44, "code": "M110097E4", "source": "SAEPE 2021 — Caderno C1201", "category": "Interpretação de gráficos", "skill": "Não identificado no material fornecido", "image": "assets/2021_q44.png", "answer": "A"}, {"id": "2021-45", "year": 2021, "number": 45, "code": "M110359H6", "source": "SAEPE 2021 — Caderno C1201", "category": "Perímetro e grandezas", "skill": "Não identificado no material fornecido", "image": "assets/2021_q45.png", "answer": "E"}, {"id": "2021-46", "year": 2021, "number": 46, "code": "M120254G5", "source": "SAEPE 2021 — Caderno C1201", "category": "Trigonometria", "skill": "Não identificado no material fornecido", "image": "assets/2021_q46.png", "answer": "A"}, {"id": "2021-47", "year": 2021, "number": 47, "code": "M120205H6", "source": "SAEPE 2021 — Caderno C1201", "category": "Princípio multiplicativo", "skill": "Não identificado no material fornecido", "image": "assets/2021_q47.png", "answer": "C"}, {"id": "2021-48", "year": 2021, "number": 48, "code": "M110004I7", "source": "SAEPE 2021 — Caderno C1201", "category": "Equação do 1º grau", "skill": "Não identificado no material fornecido", "image": "assets/2021_q48.png", "answer": "A"}, {"id": "2021-49", "year": 2021, "number": 49, "code": "M110351H6", "source": "SAEPE 2021 — Caderno C1201", "category": "Geometria espacial", "skill": "Não identificado no material fornecido", "image": "assets/2021_q49.png", "answer": "A"}, {"id": "2021-50", "year": 2021, "number": 50, "code": "M110255H6", "source": "SAEPE 2021 — Caderno C1201", "category": "Função exponencial", "skill": "Não identificado no material fornecido", "image": "assets/2021_q50.png", "answer": "B"}, {"id": "2021-51", "year": 2021, "number": 51, "code": "M100053I7", "source": "SAEPE 2021 — Caderno C1201", "category": "Grandezas e medidas", "skill": "Não identificado no material fornecido", "image": "assets/2021_q51.png", "answer": "D"}, {"id": "2021-52", "year": 2021, "number": 52, "code": "M120082I7", "source": "SAEPE 2021 — Caderno C1201", "category": "Razão e proporcionalidade", "skill": "Não identificado no material fornecido", "image": "assets/2021_q52.png", "answer": "C"}, {"id": "2022-27", "year": 2022, "number": 27, "code": "M121383H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Números racionais e reta numérica", "skill": "Não identificado no material fornecido", "image": "assets/2022_q27.png", "answer": "A"}, {"id": "2022-28", "year": 2022, "number": 28, "code": "M120034I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Sistemas e plano cartesiano", "skill": "Não identificado no material fornecido", "image": "assets/2022_q28.png", "answer": "E"}, {"id": "2022-29", "year": 2022, "number": 29, "code": "M100272I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Equação do 2º grau", "skill": "Não identificado no material fornecido", "image": "assets/2022_q29.png", "answer": "A"}, {"id": "2022-30", "year": 2022, "number": 30, "code": "M120097I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Área de trapézio", "skill": "Não identificado no material fornecido", "image": "assets/2022_q30.png", "answer": "B"}, {"id": "2022-31", "year": 2022, "number": 31, "code": "M120152I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Função afim", "skill": "Não identificado no material fornecido", "image": "assets/2022_q31.png", "answer": "A"}, {"id": "2022-32", "year": 2022, "number": 32, "code": "M120164I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Plano cartesiano", "skill": "Não identificado no material fornecido", "image": "assets/2022_q32.png", "answer": "E"}, {"id": "2022-33", "year": 2022, "number": 33, "code": "M120085I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Sistema linear 3×3", "skill": "Não identificado no material fornecido", "image": "assets/2022_q33.png", "answer": "C"}, {"id": "2022-34", "year": 2022, "number": 34, "code": "M121387H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Probabilidade", "skill": "Não identificado no material fornecido", "image": "assets/2022_q34.png", "answer": "B"}, {"id": "2022-35", "year": 2022, "number": 35, "code": "M120393H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Trigonometria", "skill": "Não identificado no material fornecido", "image": "assets/2022_q35.png", "answer": "A"}, {"id": "2022-36", "year": 2022, "number": 36, "code": "M121382H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Circunferência", "skill": "Não identificado no material fornecido", "image": "assets/2022_q36.png", "answer": "E"}, {"id": "2022-37", "year": 2022, "number": 37, "code": "M120583E4", "source": "SAEPE 2022 — Caderno C1201", "category": "Porcentagem", "skill": "Não identificado no material fornecido", "image": "assets/2022_q37.png", "answer": "B"}, {"id": "2022-38", "year": 2022, "number": 38, "code": "M121388H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Estatística e gráficos", "skill": "Não identificado no material fornecido", "image": "assets/2022_q38.png", "answer": "D"}, {"id": "2022-39", "year": 2022, "number": 39, "code": "M120776I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Função exponencial", "skill": "Não identificado no material fornecido", "image": "assets/2022_q39.png", "answer": "B"}, {"id": "2022-40", "year": 2022, "number": 40, "code": "M120177I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Crescimento de função", "skill": "Não identificado no material fornecido", "image": "assets/2022_q40.png", "answer": "C"}, {"id": "2022-41", "year": 2022, "number": 41, "code": "M110236I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Trigonometria", "skill": "Não identificado no material fornecido", "image": "assets/2022_q41.png", "answer": "C"}, {"id": "2022-42", "year": 2022, "number": 42, "code": "M121385H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Polinômios", "skill": "Não identificado no material fornecido", "image": "assets/2022_q42.png", "answer": "B"}, {"id": "2022-43", "year": 2022, "number": 43, "code": "M120873I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Área lateral de prisma", "skill": "Não identificado no material fornecido", "image": "assets/2022_q43.png", "answer": "C"}, {"id": "2022-44", "year": 2022, "number": 44, "code": "M121384H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Proporcionalidade", "skill": "Não identificado no material fornecido", "image": "assets/2022_q44.png", "answer": "B"}, {"id": "2022-45", "year": 2022, "number": 45, "code": "M120360H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Equação da reta", "skill": "Não identificado no material fornecido", "image": "assets/2022_q45.png", "answer": "E"}, {"id": "2022-46", "year": 2022, "number": 46, "code": "M120786H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Função exponencial", "skill": "Não identificado no material fornecido", "image": "assets/2022_q46.png", "answer": "D"}, {"id": "2022-47", "year": 2022, "number": 47, "code": "M100229H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Estatística e tabela", "skill": "Não identificado no material fornecido", "image": "assets/2022_q47.png", "answer": "D"}, {"id": "2022-48", "year": 2022, "number": 48, "code": "M120029I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Função afim", "skill": "Não identificado no material fornecido", "image": "assets/2022_q48.png", "answer": "A"}, {"id": "2022-49", "year": 2022, "number": 49, "code": "M101371I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Teorema da altura", "skill": "Não identificado no material fornecido", "image": "assets/2022_q49.png", "answer": "E"}, {"id": "2022-50", "year": 2022, "number": 50, "code": "M120022I7", "source": "SAEPE 2022 — Caderno C1201", "category": "Função afim", "skill": "Não identificado no material fornecido", "image": "assets/2022_q50.png", "answer": "D"}, {"id": "2022-51", "year": 2022, "number": 51, "code": "M121386H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Combinatória", "skill": "Não identificado no material fornecido", "image": "assets/2022_q51.png", "answer": "C"}, {"id": "2022-52", "year": 2022, "number": 52, "code": "M120407H6", "source": "SAEPE 2022 — Caderno C1201", "category": "Função afim e situação financeira", "skill": "Não identificado no material fornecido", "image": "assets/2022_q52.png", "answer": "B"}];
+let quizList=[], current=0, mode='training', student='', answers={}, teacherCurrent=null;
+
+const $ = id => document.getElementById(id);
+
+function uniqueCategories(list=QUESTIONS){
+  return [...new Set(list.map(q=>q.category))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+}
+function fillCategorySelects(){
+  const cats=uniqueCategories();
+  ['catFilter','teacherCat'].forEach(id=>{
+    const s=$(id); if(!s) return;
+    const first=s.options[0]?.outerHTML || '<option value="all">Todos</option>';
+    s.innerHTML=first;
+    cats.forEach(c=>s.insertAdjacentHTML('beforeend',`<option value="${esc(c)}">${esc(c)}</option>`));
+  });
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+
+function filtered(){
+  const y=$('yearFilter').value, c=$('catFilter').value;
+  return QUESTIONS.filter(q=>(y==='all'||String(q.year)===y)&&(c==='all'||q.category===c));
+}
+function startQuiz(selectedMode){
+  student=$('studentName').value.trim() || 'Estudante';
+  mode=selectedMode;
+  let pool=filtered();
+  if(!pool.length){alert('Nenhuma questão corresponde aos filtros escolhidos.');return;}
+  const qty=$('qty').value;
+  if(selectedMode==='random' || qty!=='all'){
+    const n=qty==='all'?pool.length:Number(qty);
+    pool=[...pool].sort(()=>Math.random()-.5).slice(0,Math.min(n,pool.length));
+  }
+  quizList=pool; current=0; answers={};
+  $('home').classList.add('hidden'); $('result').classList.add('hidden'); $('teacher').classList.add('hidden'); $('quiz').classList.remove('hidden');
+  renderQuestion();
+}
+function resetImageBox(id){
+  const box=$(id);
+  if(!box) return;
+  box.innerHTML='<img id="questionImage" class="question-image" alt="Questão oficial do SAEPE" onerror="handleImageError(this)">';
+}
+function handleImageError(img){
+  const path=img.dataset.path || img.getAttribute('src') || 'caminho não informado';
+  const fileName=path.split('/').pop();
+  const box=img.parentElement;
+  if(!box) return;
+  box.innerHTML=`<div class="image-error" role="alert"><strong>⚠️ Imagem da questão não carregada</strong><div>O arquivo abaixo não foi encontrado ou não pôde ser carregado:</div><code>${esc(path)}</code><div class="small" style="margin-top:10px">Arquivo esperado: <strong>${esc(fileName)}</strong><br>Verifique se ele está dentro da pasta <strong>assets/</strong> no GitHub e se o nome do arquivo está exatamente igual, incluindo maiúsculas/minúsculas.</div></div>`;
+}
+function renderQuestion(){
+  const q=quizList[current];
+  $('studentLabel').textContent=`Aluno: ${student} • ${mode==='assessment'?'Modo Avaliação':mode==='random'?'Desafio Aleatório':'Modo Treinamento'}`;
+  $('questionTitle').textContent=`Questão ${q.number}`;
+  $('badges').innerHTML=`<span class="badge">SAEPE ${q.year}</span><span class="badge">${esc(q.category)}</span><span class="badge">${q.code}</span>`;
+  resetImageBox('questionImageWrap');
+  const questionImage=$('questionImage');
+  questionImage.src='';
+  questionImage.alt=`Questão ${q.number} do SAEPE ${q.year}`;
+  questionImage.dataset.path=q.image;
+  questionImage.src=q.image;
+  $('progressText').textContent=`Questão ${current+1} de ${quizList.length}`;
+  $('progressBar').style.width=((current+1)/quizList.length*100)+'%';
+  const chosen=answers[q.id]?.choice;
+  $('answers').innerHTML=['A','B','C','D','E'].map(a=>`<button class="answer ${chosen===a?'selected':''}" onclick="choose('${a}')">${a}</button>`).join('');
+  const fb=$('feedback');
+  if(chosen && mode==='training'){
+    const ok=chosen===q.answer;
+    fb.className='feedback '+(ok?'ok':'no');
+    fb.innerHTML=ok?`✓ Resposta correta: <strong>${q.answer}</strong>`:`✗ Resposta registrada. Gabarito: <strong>${q.answer}</strong>`;
+    fb.classList.remove('hidden');
+  }else fb.classList.add('hidden');
+}
+function choose(letter){
+  const q=quizList[current];
+  answers[q.id]={choice:letter, correct:letter===q.answer};
+  renderQuestion();
+}
+function nextQuestion(){
+  if(!answers[quizList[current].id]){alert('Selecione uma alternativa antes de avançar.');return;}
+  if(current<quizList.length-1){current++;renderQuestion();}else finishQuiz();
+}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+function finishQuiz(){
+  const total=quizList.length, correct=quizList.filter(q=>answers[q.id]?.correct).length;
+  const result={date:new Date().toISOString(),student,mode,total,correct,wrong:total-correct,pct:Math.round(correct/total*100),items:quizList.map(q=>({id:q.id,year:q.year,number:q.number,code:q.code,category:q.category,choice:answers[q.id]?.choice||null,answer:q.answer}))};
+  const stored=JSON.parse(localStorage.getItem('saepeResultados')||'[]'); stored.push(result);
+  localStorage.setItem('saepeResultados',JSON.stringify(stored));
+  showResult(result);
+}
+function showResult(result){
+  $('quiz').classList.add('hidden');$('teacher').classList.add('hidden');$('home').classList.add('hidden');$('result').classList.remove('hidden');
+  $('resultStudent').textContent=`Aluno: ${result.student} • ${result.mode==='assessment'?'Modo Avaliação':'Treinamento'} • ${new Date(result.date).toLocaleString('pt-BR')}`;
+  $('rTotal').textContent=result.total;$('rCorrect').textContent=result.correct;$('rWrong').textContent=result.wrong;$('rPct').textContent=result.pct+'%';
+  const groups={};
+  result.items.forEach(it=>{const q=QUESTIONS.find(x=>x.id===it.id);if(!groups[q.category])groups[q.category]={c:0,t:0};groups[q.category].t++;if(it.choice===it.answer)groups[q.category].c++;});
+  $('contentReport').innerHTML=Object.entries(groups).sort().map(([cat,g])=>{const p=Math.round(g.c/g.t*100);return `<div style="margin:14px 0"><div style="display:flex;justify-content:space-between"><strong>${esc(cat)}</strong><span>${g.c}/${g.t} — ${p}%</span></div><div class="bar"><span style="width:${p}%"></span></div></div>`}).join('');
+}
+function downloadCurrentResult(){
+  const stored=JSON.parse(localStorage.getItem('saepeResultados')||'[]'); const r=stored[stored.length-1];
+  const blob=new Blob([JSON.stringify(r,null,2)],{type:'application/json'}); const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`resultado_${r.student.replace(/\s+/g,'_')}.json`;a.click();URL.revokeObjectURL(a.href);
+}
+function showHome(){['quiz','result','teacher'].forEach(id=>$(id).classList.add('hidden'));$('home').classList.remove('hidden');}
+function openTeacher(){
+  $('home').classList.add('hidden');$('quiz').classList.add('hidden');$('result').classList.add('hidden');$('teacher').classList.remove('hidden');
+  fillTeacherQuestions();renderTeacher();renderStored();
+}
+function fillTeacherQuestions(){
+  const y=$('teacherYear').value,c=$('teacherCat').value;
+  const pool=QUESTIONS.filter(q=>(y==='all'||String(q.year)===y)&&(c==='all'||q.category===c));
+  $('teacherQuestion').innerHTML=pool.map(q=>`<option value="${q.id}">SAEPE ${q.year} — Questão ${q.number} — ${q.code}</option>`).join('');
+  teacherCurrent=pool[0]?.id||null;
+}
+function renderTeacher(){
+  const id=$('teacherQuestion').value||teacherCurrent;
+  const q=QUESTIONS.find(x=>x.id===id); if(!q)return;
+  teacherCurrent=id;
+  const reveal=$('teacherReveal').value==='show';
+  $('teacherView').innerHTML=`<div class="question-head"><div><h2>SAEPE ${q.year} — Questão ${q.number}</h2><div class="badges"><span class="badge">${q.code}</span><span class="badge">${esc(q.category)}</span></div></div><div>${reveal?`<strong style="font-size:22px;color:var(--verde)">Gabarito: ${q.answer}</strong>`:'<strong>Gabarito oculto</strong>'}</div></div><div class="teacher-image-wrap"><img class="question-image" src="${q.image}" alt="Questão ${q.number}" data-path="${q.image}" onerror="handleImageError(this)"></div>`;
+}
+function renderStored(){
+  const rs=JSON.parse(localStorage.getItem('saepeResultados')||'[]');
+  if(!rs.length){$('storedResults').innerHTML='<p class="small">Nenhum resultado registrado neste navegador.</p>';return;}
+  $('storedResults').innerHTML='<div class="table-wrap"><table><thead><tr><th>Data</th><th>Aluno</th><th>Modo</th><th>Acertos</th><th>%</th></tr></thead><tbody>'+rs.slice().reverse().map(r=>`<tr><td>${new Date(r.date).toLocaleString('pt-BR')}</td><td>${esc(r.student)}</td><td>${esc(r.mode)}</td><td>${r.correct}/${r.total}</td><td>${r.pct}%</td></tr>`).join('')+'</tbody></table></div>';
+}
+function exportAllResults(){
+  const rs=JSON.parse(localStorage.getItem('saepeResultados')||'[]');
+  const blob=new Blob([JSON.stringify(rs,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='saepe_resultados_turma.json';a.click();URL.revokeObjectURL(a.href);
+}
+function clearResults(){
+  if(confirm('Apagar todos os resultados salvos neste navegador?')){localStorage.removeItem('saepeResultados');renderStored();}
+}
+$('teacherYear').addEventListener('change',()=>{fillTeacherQuestions();renderTeacher();});
+$('teacherCat').addEventListener('change',()=>{fillTeacherQuestions();renderTeacher();});
+$('teacherQuestion').addEventListener('change',renderTeacher);
+$('teacherReveal').addEventListener('change',renderTeacher);
+$('yearFilter').addEventListener('change',()=>{});
+$('catFilter').addEventListener('change',()=>{});
+fillCategorySelects();
+</script>
+</body>
+</html>
